@@ -27,8 +27,8 @@ const server = http.createServer(async (req, res) => {
 
   res.writeHead(200, { "Content-Type": "text/plain" })
   res.end("Ruta no encontrada")
-}
+});
 
 server.listen(PORT, () => {
   console.log("Servidor corriendo en http://localhost:3000")
-}
+});
