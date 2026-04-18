@@ -18,10 +18,15 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (req.url === "/api/student") {
-    const filePath = path.join(process.cwd(), "datos.json")
-    const texto = await fs.readFile(filePath, "utf-8")
-    res.writeHead(200, { "Content-Type": "application/json" })
-    res.end(texto)
+    try {
+      const filePath = path.join(process.cwd(), "datos.json")
+      const texto = await fs.readFile(filePath, "utf-8")
+      res.writeHead(200, { "Content-Type": "application/json" })
+      res.end(texto)
+    } catch (error) {
+      res.writeHead(500, { "Content-Type": "text/plain" })
+      res.end("Error leyendo datos")
+    }
     return
   }
 
