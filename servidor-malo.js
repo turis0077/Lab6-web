@@ -19,7 +19,7 @@ const server = http.createServer(async (req, res) => {
 
   if (req.url === "/api/student") {
     const filePath = path.join(process.cwd(), "datos.json")
-    const texto = fs.readFile(filePath, "utf-8")
+    const texto = await fs.readFile(filePath, "utf-8")
     res.writeHead(200, { "Content-Type": "application/json" })
     res.end(JSON.stringify(texto))
     return
