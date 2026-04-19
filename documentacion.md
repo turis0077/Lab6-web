@@ -5,3 +5,5 @@
 2. **Llaves faltantes**: Faltaban los `});` requeridos para cerrar `createServer` y `listen`.
 3. **Ruta 404**: Se cambió de código HTTP 200 a 404.
 4. **Ruta /info**: Tenía el MIME Type mal escrito (`application-json` en vez de `application/json`).
+
+Nota: Estas correcciones estabilizan la primera fase.
