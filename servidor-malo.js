@@ -11,6 +11,12 @@ const server = http.createServer(async (req, res) => {
     return
   }
 
+  if (req.url === "/saludo") {
+    res.writeHead(200, { "Content-Type": "text/plain" })
+    res.end("¡Hola! Un gusto saludarte desde Node.js")
+    return
+  }
+
   if (req.url === "/info") {
     res.writeHead(200, { "Content-Type": "application/json" })
     res.end("Ruta de información")
