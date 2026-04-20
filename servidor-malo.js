@@ -11,6 +11,12 @@ const server = http.createServer(async (req, res) => {
     return
   }
 
+  if (req.url === "/api/status") {
+    res.writeHead(200, { "Content-Type": "application/json" })
+    res.end(JSON.stringify({ Ok: true, Status: "Running", Puerto: PORT }))
+    return
+  }
+
   if (req.url === "/saludo") {
     res.writeHead(200, { "Content-Type": "text/plain" })
     res.end("¡Hola! Un gusto saludarte desde Node.js")
