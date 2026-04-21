@@ -25,7 +25,12 @@ const server = http.createServer(async (req, res) => {
 
   if (req.url === "/info") {
     res.writeHead(200, { "Content-Type": "application/json" })
-    res.end("Ruta de información")
+    const infoObj = {
+      Mensaje: "Bienvenidos al servidor de prueba",
+      Curso: "Sistemas Web",
+      Tecnología: "Node.js"
+    }
+    res.end(JSON.stringify(infoObj))
     return
   }
 
@@ -43,7 +48,7 @@ const server = http.createServer(async (req, res) => {
   }
 
   res.writeHead(404, { "Content-Type": "text/plain" })
-  res.end("Ruta no encontrada")
+  res.end(`Ruta no encontrada: intentaste acceder a ${req.url}`)
 });
 
 server.listen(PORT, () => {
